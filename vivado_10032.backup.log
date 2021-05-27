@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Sat May 15 22:01:46 2021
+# Process ID: 10032
+# Current directory: D:/Verilog/ImageProcessingofSketch
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11652 D:\Verilog\ImageProcessingofSketch\ImageProcessing.xpr
+# Log file: D:/Verilog/ImageProcessingofSketch/vivado.log
+# Journal file: D:/Verilog/ImageProcessingofSketch\vivado.jou
+#-----------------------------------------------------------
+start_gui
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat May 15 22:01:57 2021...

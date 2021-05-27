@@ -58,8 +58,8 @@ module tb(
     #100;
     reset = 1;
     #100;
-    file = $fopen("lena_gray.bmp","rb");
-    file1 = $fopen("blurred_lena.bmp","wb");
+    file = $fopen ("C:/Users/JIE/Desktop/BMP1/26.bmp","rb");
+    file1 = $fopen("C:/Users/JIE/Desktop/BMP1/26o.bmp","wb");
     file2 = $fopen("imageData.h","w");
     for(i=0;i<`headerSize;i=i+1)
     begin

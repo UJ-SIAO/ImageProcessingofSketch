@@ -71,8 +71,7 @@ always @(*)
 begin
 	for(i=0;i<9;i=i+1)
 	begin
-		i_pixel_data_light[i] <= (((i_pixel_data[i*8+:8] * 15)/10)  >= 255) ? 255 : (i_pixel_data[i*8+:8] * 15)/10;
-		//i_pixel_data_light[i] <= ((i_pixel_data[i*8+:8] * 2)  >= 255) ? 255 : (i_pixel_data[i*8+:8] * 2);
+		i_pixel_data_light[i] <= (((i_pixel_data[i*8+:8] * 16)/10)  >= 255) ? 255 : (i_pixel_data[i*8+:8] * 16)/10;
 	end	
 end	
 	
@@ -81,19 +80,13 @@ always @(posedge i_clk)
 begin
 	for(i=0;i<9;i=i+1)
 	begin
-		//multData1[i] <= $signed(kernel1[i]) * $signed({1'b0,i_pixel_data_light[i]});
-		//multData2[i] <= ($signed({1'b0,i_pixel_data_light[i]}) < 20) ?  8'b0 : (($signed({1'b0,i_pixel_data_light[i]}) - 20) * 51 ) / 47;
-		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'b0 : ((i_pixel_data_light[i] - 40) * 51 ) / 43;
-		multData2[i] <= (i_pixel_data_light[i] < 15) ?  8'd15 : ((i_pixel_data_light[i] - 15) * 7 ) / 8;
-		//multData2[i] <= (i_pixel_data_light[i]*49)/51+50;
-		//multData2[i] <= i_pixel_data_light[i];
-		/*multData2[i] <= (i_pixel_data_light[i] < 20) ?  8'd0 : 
-						((((i_pixel_data_light[i] * 51 ) / 47) -22) > 240) ? 240 : (((i_pixel_data_light[i] * 51 ) / 47) -22);*/
-		/*multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'd0 : 
-						((((i_pixel_data_light[i] * 51 ) / 43) -47) > 240) ? 240 : (((i_pixel_data_light[i] * 51 ) / 43) -47);*/
-		/*multData2[i] <= (i_pixel_data_light[i] < 70) ?  8'd50 : 
-						((((i_pixel_data_light[i] - 70) * 51 ) / 37) > 200) ? 200 : (((i_pixel_data_light[i] - 70) * 51 ) / 37);*/
-		//multData2[i] <= (i_pixel_data_light[i] < 20) ?  8'd0 : (((i_pixel_data_light[i] * 51 ) / 47) -22);
+		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'b0  : ((i_pixel_data_light[i] - 40) * 42 ) / 43;	//(40,0)->(255,210)
+		multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'b0  : ((i_pixel_data_light[i] - 40) * 46 ) / 43;	//(40,0)->(255,230)
+		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'd40 : ((i_pixel_data_light[i] - 40) * 34 ) / 43;	//(40,40)->(255,210)
+		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'b0  : ((i_pixel_data_light[i] - 40) * 51 ) / 43;	//(40,0)->(255,255)
+		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'd40 : ((i_pixel_data_light[i] - 40) * 51 ) / 43;	//(40,40)->(255,255)
+		//multData2[i] <= (i_pixel_data_light[i] < 70) ?  8'd0 : ((i_pixel_data_light[i] - 70) * 42 ) / 37;	//(70,0)->(255,210)
+		//multData2[i] <= (i_pixel_data_light[i] < 70) ?  8'd0 : ((i_pixel_data_light[i] - 70) * 46 ) / 37;	//(70,0)->(255,230)
 		
 	end
 	multDataValid <= i_pixel_data_valid;
@@ -102,13 +95,11 @@ end
 
 always @(*)
 begin
-	multData1_s2 = 0;
+	
 
 	for(i=0;i<9;i=i+1)
 	begin
 		sumDataInt2[i] = 0;
-		multData1_s2 = multData1_s2 + $signed(multData1[i]);
-
 		sumDataInt2[i] =  255-multData2[i];
 	end
 end
@@ -126,7 +117,7 @@ begin
 		multData1[i] <= $signed(kernel1[i]) * $signed({1'b0,multData2[i]});
 	end
 	
-	multData1_s3<=multData1_s2;
+	
 	
 	
 	sumDataValid <= multDataValid;
@@ -135,8 +126,10 @@ end
 always @(*)
 begin
 	testData3=0;
+	multData1_s2 = 0;
 	for(i=0;i<9;i=i+1)
 	begin
+		multData1_s2 = multData1_s2 + $signed(multData1[i]);
 		testData3 = testData3 + $signed(testData2[i]);
 	end
 end
@@ -147,14 +140,14 @@ begin
     compared_data[6] <= (compared_data[2] <= compared_data[3]) ? compared_data[2] : compared_data[3];
 	
 	sumData2<=testData3;
-	multData1_s4<=multData1_s3;
+	multData1_s3<=multData1_s2;
     convolved_data_int_valid <= sumDataValid;
 end
 
 
 assign compared_data7   = (compared_data[6] <= compared_data[4]) ? compared_data[6] : compared_data[4];
 
-assign picture2 = 255 - multData1_s4;
+assign picture2 = 255 - multData1_s3;
 assign picture1 = compared_data7 * 255;
 
 always @(posedge i_clk)
@@ -169,7 +162,7 @@ begin
 						((compared_data7 << 8) / (255 - multData1_s4))+100;*/
 	/*o_convolved_data <= (multData1_s4 >= 200 ) ? 8'd255 : 
 						(255 < (picture1 / picture2)) ?  8'd255 : (picture1 / picture2);*/
-	o_convolved_data <= (multData1_s4 >= 255 ) ? 8'd255 : 
+	o_convolved_data <= (multData1_s3 == 255 ) ? 8'd255 : 
 						(255 < (picture1 / picture2)) ?  8'd255 : (picture1 / picture2);
 	
 	o_convolved_data_valid <= convolved_data_int_valid;

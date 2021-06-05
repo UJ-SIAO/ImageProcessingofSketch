@@ -1,2 +1,0 @@
-# ImageProcessingofSketch
- Sketch

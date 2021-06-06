@@ -20,8 +20,8 @@ Compiling module fifo_generator_v13_2_1.fifo_generator_v13_2_1(C_COMMON_...
 Compiling module xil_defaultlib.outputBuffer
 Compiling module xil_defaultlib.imageProcessTop
 Compiling module xil_defaultlib.tb
-WARNING: [XSIM 43-3373] "D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sim_1/new/tb.v" Line 63. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sim_1/new/tb.v" Line 70. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
-WARNING: [XSIM 43-3373] "D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sim_1/new/tb.v" Line 82. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sim_1/new/tb.v" Line 64. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sim_1/new/tb.v" Line 71. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
+WARNING: [XSIM 43-3373] "D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sim_1/new/tb.v" Line 84. System function $fscanf is used as system task. This system function should have a LHS e.g. x=$fscanf().
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot tb_behav

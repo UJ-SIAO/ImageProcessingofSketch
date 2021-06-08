@@ -54,7 +54,7 @@ imageControl IC(
     .o_intr(o_intr)
   );    
   
- conv conv(
+ conv1 conv1(
      .i_clk(axi_clk),
      .i_pixel_data(pixel_data),
      .i_pixel_data_valid(pixel_data_valid),

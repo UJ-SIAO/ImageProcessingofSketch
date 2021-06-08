@@ -57,7 +57,7 @@ module tb(
     reset = 1;
     #100;
     file  = $fopen("D:/GitCode/ImageProcessingofSketch/lena_gray.bmp","rb");
-    file1 = $fopen("D:/GitCode/ImageProcessingofSketch/blurred_lena.bmp","wb");
+    file1 = $fopen("D:/GitCode/ImageProcessingofSketch/Sketch_lena.bmp","wb");
     file2 = $fopen("D:/GitCode/ImageProcessingofSketch/imageData.h","w");
     for(i=0;i<`headerSize;i=i+1)
     begin

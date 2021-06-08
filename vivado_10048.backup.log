@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Jun  7 21:04:40 2021
+# Process ID: 10048
+# Current directory: D:/GitCode/ImageProcessingofSketch
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1300 D:\GitCode\ImageProcessingofSketch\ImageProcessing.xpr
+# Log file: D:/GitCode/ImageProcessingofSketch/vivado.log
+# Journal file: D:/GitCode/ImageProcessingofSketch\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitCode/ImageProcessingofSketch/ImageProcessing.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/gitcode/imageprocessingofsketch'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 741.668 ; gain = 60.734
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jun  7 21:05:24 2021...

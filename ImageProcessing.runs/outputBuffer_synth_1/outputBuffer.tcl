@@ -30,9 +30,10 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
+set_property ip_repo_paths d:/gitcode/imageprocessingofsketch [current_project]
 set_property ip_output_repo d:/GitCode/ImageProcessingofSketch/ImageProcessing.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci
+read_ip -quiet D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci
 set_property used_in_implementation false [get_files -all d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xdc]
 set_property used_in_implementation false [get_files -all d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_ooc.xdc]
 
@@ -86,32 +87,32 @@ write_checkpoint -force -noxdef outputBuffer.dcp
 create_report "outputBuffer_synth_1_synth_report_utilization_0" "report_utilization -file outputBuffer_utilization_synth.rpt -pb outputBuffer_utilization_synth.pb"
 
 if { [catch {
-  file copy -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer.dcp d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.dcp
+  file copy -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer.dcp D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v
+  write_verilog -force -mode synth_stub D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.vhdl
+  write_vhdl -force -mode synth_stub D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.v
+  write_verilog -force -mode funcsim D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -121,32 +122,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer.dcp d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.dcp
+  file copy -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer.dcp D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_stub.v d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v
+  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_stub.v D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_stub.vhdl d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.vhdl
+  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_stub.vhdl D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_sim_netlist.v d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.v
+  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_sim_netlist.v D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_sim_netlist.vhdl d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.vhdl
+  file rename -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.runs/outputBuffer_synth_1/outputBuffer_sim_netlist.vhdl D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -155,12 +156,12 @@ if { [catch {
 
 if {[file isdir D:/GitCode/ImageProcessingofSketch/ImageProcessing.ip_user_files/ip/outputBuffer]} {
   catch { 
-    file copy -force d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v D:/GitCode/ImageProcessingofSketch/ImageProcessing.ip_user_files/ip/outputBuffer
+    file copy -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v D:/GitCode/ImageProcessingofSketch/ImageProcessing.ip_user_files/ip/outputBuffer
   }
 }
 
 if {[file isdir D:/GitCode/ImageProcessingofSketch/ImageProcessing.ip_user_files/ip/outputBuffer]} {
   catch { 
-    file copy -force d:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.vhdl D:/GitCode/ImageProcessingofSketch/ImageProcessing.ip_user_files/ip/outputBuffer
+    file copy -force D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.vhdl D:/GitCode/ImageProcessingofSketch/ImageProcessing.ip_user_files/ip/outputBuffer
   }
 }

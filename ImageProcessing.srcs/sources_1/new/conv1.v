@@ -34,7 +34,8 @@ reg [7:0] kernel1 [8:0];
 
 reg [15:0]stage1_data[8:0];
 reg [7:0] i_pixel_data_light_s1[8:0];
-reg [7:0] curved_data[8:0];
+reg [7:0] i_pixel_data_light_s1_threshold[8:0];
+reg [15:0] curved_data[8:0];
 reg [7:0] i_pixel_data_light_s2[8:0];
 reg [7:0] multData1[8:0];
 reg [7:0] multData2[8:0];
@@ -46,6 +47,7 @@ reg [7:0] reserved_data[7:0];
 reg [7:0] multData1_s3;
 reg [7:0] multData1_s4;
 reg [7:0] multData1_s5;
+wire [7:0] inverse_multData1_s5;
 
 reg stage1_Vaild;
 reg lightDataValid;
@@ -84,10 +86,6 @@ begin
 	stage1_Vaild    <= i_pixel_data_valid;
 end
 
-
-
-
-
 always @(posedge i_clk)
 begin
 	for(i=0;i<9;i=i+1)
@@ -97,11 +95,22 @@ begin
 	lightDataValid <= stage1_Vaild;
 end
 
+always @(*)
+begin
+	for(i=0;i<9;i=i+1)
+	begin
+		i_pixel_data_light_s1_threshold[i] = 0;
+		i_pixel_data_light_s1_threshold[i] = i_pixel_data_light_s1[i]-40;
+		//for test
+		//sumDataInt2[i] = multData2[i];
+	end
+end
+
 always @(posedge i_clk)
 begin	
 	for(i=0;i<9;i=i+1)
 	begin
-		curved_data[i]  <= ((i_pixel_data_light_s1[i] - 40) * 46 ) / 43;
+		curved_data[i]  <= (i_pixel_data_light_s1_threshold[i] * 46 ) / 43;
 		i_pixel_data_light_s2[i] <= i_pixel_data_light_s1[i];
 	end
 	curved_Vaild    <= lightDataValid;		
@@ -112,7 +121,7 @@ begin
 	for(i=0;i<9;i=i+1)
 	begin
 		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'b0  : ((i_pixel_data_light[i] - 40) * 42 ) / 43;	//(40,0)->(255,210)
-		multData2[i] <= i_pixel_data_light_s1[i];//(i_pixel_data_light_s2[i] > 40) ?  curved_data[i]  : 8'b0;		//(40,0)->(255,230)
+		multData2[i] <= (i_pixel_data_light_s2[i] > 40) ?  curved_data[i]  : 8'b0;		//(40,0)->(255,230)
 		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'd40 : ((i_pixel_data_light[i] - 40) * 34 ) / 43;	//(40,40)->(255,210)
 		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'b0  : ((i_pixel_data_light[i] - 40) * 51 ) / 43;	//(40,0)->(255,255)
 		//multData2[i] <= (i_pixel_data_light[i] < 40) ?  8'd40 : ((i_pixel_data_light[i] - 40) * 51 ) / 43;	//(40,40)->(255,255)
@@ -132,7 +141,7 @@ begin
 	for(i=0;i<9;i=i+1)
 	begin
 		sumDataInt2[i] = 0;
-		sumDataInt2[i] = multData2[i];
+		sumDataInt2[i] = 255-multData2[i];
 		//for test
 		//sumDataInt2[i] = multData2[i];
 	end
@@ -152,7 +161,7 @@ begin
 		//for test
 		//multData1[i] <= $signed(kernel1[i]) * $signed({1'b0,sumDataInt2[i]});
 	end*/
-	multData1[4] <= sumDataInt2[4];
+	multData1[4] <= multData2[4];
 	sumDataValid <= multDataValid;
 end
 
@@ -232,13 +241,23 @@ begin
 	dodged_data_valid <= compared_data_valid;
 end
 
+assign	inverse_multData1_s5 = 255-multData1_s5;
+
+/*always @(posedge i_clk)
+begin
+
+
+end*/
+
 always @(posedge i_clk)
 begin
 	/*o_convolved_data <= (multData1_s5 >= 200 ) ? 8'd255 : 
 						(255 < (picture1 / picture2)) ?  8'd255 : (picture1 / picture2);*/
 	/*o_convolved_data <= (multData1_s5 == 255 ) ? 8'd255 : 
-						(255 < ((compared_data[7] * 255) / (255 - multData1_s5))) ?  8'd255 : ((compared_data[7] * 255) / (255 - multData1_s5));*/
-	o_convolved_data<=multData1_s5;
+						(255 < ((compared_data[8] * 255) / (255 - multData1_s5))) ?  8'd255 : ((compared_data[8] * 255) / (255 - multData1_s5));*/
+	o_convolved_data <= (multData1_s5 == 255 ) ? 8'd255 : 
+						(255 < ((compared_data[8] * 255) / inverse_multData1_s5)) ?  8'd255 : ((compared_data[8] * 255) / inverse_multData1_s5);
+	//o_convolved_data<=compared_data[8];
 	o_convolved_data_valid <= dodged_data_valid;
 end
     

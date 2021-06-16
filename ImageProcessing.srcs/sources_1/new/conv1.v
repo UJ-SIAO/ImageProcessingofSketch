@@ -48,6 +48,8 @@ reg [7:0] multData1_s3;
 reg [7:0] multData1_s4;
 reg [7:0] multData1_s5;
 wire [7:0] inverse_multData1_s5;
+reg [7:0] multData1_s6;
+reg [15:0] dodge_data;
 
 reg stage1_Vaild;
 reg lightDataValid;
@@ -57,6 +59,7 @@ reg sumDataValid;
 reg convolved_data_valid;
 reg convolved_data_int_valid;
 reg compared_data_valid;
+reg compared_data_valid_s2;
 reg dodged_data_valid;
 
 /*reg [7:0] sumData2;
@@ -238,16 +241,18 @@ always @(posedge i_clk)
 begin
 	compared_data[8] <= (lonely_data[2] <= compared_data[7]) ? lonely_data[2] : compared_data[7];
 	multData1_s5 <= multData1_s4;
-	dodged_data_valid <= compared_data_valid;
+	compared_data_valid_s2 <= compared_data_valid;
 end
 
-assign	inverse_multData1_s5 = 255-multData1_s5;
+assign	inverse_multData1_s5 = 256-multData1_s5;
 
-/*always @(posedge i_clk)
+always @(posedge i_clk)
 begin
-
-
-end*/
+	dodge_data	 <= (compared_data[8] << 8) / inverse_multData1_s5;
+	multData1_s6 <= multData1_s5;
+	
+	dodged_data_valid <= compared_data_valid_s2;
+end
 
 always @(posedge i_clk)
 begin
@@ -255,8 +260,8 @@ begin
 						(255 < (picture1 / picture2)) ?  8'd255 : (picture1 / picture2);*/
 	/*o_convolved_data <= (multData1_s5 == 255 ) ? 8'd255 : 
 						(255 < ((compared_data[8] * 255) / (255 - multData1_s5))) ?  8'd255 : ((compared_data[8] * 255) / (255 - multData1_s5));*/
-	o_convolved_data <= (multData1_s5 == 255 ) ? 8'd255 : 
-						(255 < ((compared_data[8] * 255) / inverse_multData1_s5)) ?  8'd255 : ((compared_data[8] * 255) / inverse_multData1_s5);
+	o_convolved_data <= (multData1_s6 == 255 ) ? 8'd255 : 
+							(255 > dodge_data) ? dodge_data : 8'd255;
 	//o_convolved_data<=compared_data[8];
 	o_convolved_data_valid <= dodged_data_valid;
 end

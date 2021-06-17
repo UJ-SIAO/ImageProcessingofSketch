@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Thu Jun 10 15:13:55 2021
+// Date        : Thu Jun 17 18:57:41 2021
 // Host        : DESKTOP-RE08DTS running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top outputBuffer -prefix
+//               outputBuffer_ outputBuffer_stub.v
 // Design      : outputBuffer
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

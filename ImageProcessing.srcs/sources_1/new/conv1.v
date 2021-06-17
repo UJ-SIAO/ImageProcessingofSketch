@@ -41,15 +41,17 @@ reg [7:0] multData1[8:0];
 reg [7:0] multData2[8:0];
 reg [7:0] multData1_s2;
 reg [7:0] sumDataInt2[8:0];
-reg [7:0] compared_data[8:0];
+reg [15:0] compared_data[8:0];
 reg [7:0] lonely_data[7:0];
 reg [7:0] reserved_data[7:0];
 reg [7:0] multData1_s3;
 reg [7:0] multData1_s4;
 reg [7:0] multData1_s5;
-wire [7:0] inverse_multData1_s5;
+reg [7:0] inverse_multData1_s6;
 reg [7:0] multData1_s6;
-reg [15:0] dodge_data;
+reg [15:0] dodge_data_s1;
+reg [7:0] multData1_s7;
+reg [15:0] dodge_data_s2;
 
 reg stage1_Vaild;
 reg lightDataValid;
@@ -60,7 +62,8 @@ reg convolved_data_valid;
 reg convolved_data_int_valid;
 reg compared_data_valid;
 reg compared_data_valid_s2;
-reg dodged_data_valid;
+reg dodged_data_valid_s1;
+reg dodged_data_valid_s2;
 
 /*reg [7:0] sumData2;
 reg [7:0]testData;
@@ -244,14 +247,23 @@ begin
 	compared_data_valid_s2 <= compared_data_valid;
 end
 
-assign	inverse_multData1_s5 = 256-multData1_s5;
+always @(posedge i_clk)
+begin
+	dodge_data_s1	 <= (compared_data[8] << 8);
+	multData1_s6 <= multData1_s5;
+	inverse_multData1_s6 <= 255 - multData1_s5;
+	
+	dodged_data_valid_s1 <= compared_data_valid_s2;
+end
+
+//assign	inverse_multData1_s6 = 255 - multData1_s6;
 
 always @(posedge i_clk)
 begin
-	dodge_data	 <= (compared_data[8] << 8) / inverse_multData1_s5;
-	multData1_s6 <= multData1_s5;
+	dodge_data_s2 <= dodge_data_s1 / inverse_multData1_s6;
+	multData1_s7  <= multData1_s6;
 	
-	dodged_data_valid <= compared_data_valid_s2;
+	dodged_data_valid_s2 <= dodged_data_valid_s1;
 end
 
 always @(posedge i_clk)
@@ -260,10 +272,10 @@ begin
 						(255 < (picture1 / picture2)) ?  8'd255 : (picture1 / picture2);*/
 	/*o_convolved_data <= (multData1_s5 == 255 ) ? 8'd255 : 
 						(255 < ((compared_data[8] * 255) / (255 - multData1_s5))) ?  8'd255 : ((compared_data[8] * 255) / (255 - multData1_s5));*/
-	o_convolved_data <= (multData1_s6 == 255 ) ? 8'd255 : 
-							(255 > dodge_data) ? dodge_data : 8'd255;
+	o_convolved_data <= (multData1_s7 == 255 ) ? 8'd255 : 
+							(15'd255 > dodge_data_s2) ? dodge_data_s2 : 8'd255;
 	//o_convolved_data<=compared_data[8];
-	o_convolved_data_valid <= dodged_data_valid;
+	o_convolved_data_valid <= dodged_data_valid_s2;
 end
     
 endmodule

@@ -1,0 +1,73 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Jun 21 21:11:41 2021
+# Process ID: 14760
+# Current directory: D:/GitCode/ImageProcessingofSketch
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12968 D:\GitCode\ImageProcessingofSketch\ImageProcessing.xpr
+# Log file: D:/GitCode/ImageProcessingofSketch/vivado.log
+# Journal file: D:/GitCode/ImageProcessingofSketch\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/GitCode/ImageProcessingofSketch/ImageProcessing.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/gitcode/imageprocessingofsketch'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 752.355 ; gain = 75.699
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file {D:\gitcode\imageprocessingofsketch\component.xml}
+WARNING: [IP_Flow 19-3833] Unreferenced file from the top module is not packaged: 'D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/new/conv.v'.
+WARNING: [IP_Flow 19-4963] outputBuffer has board value specified. The packaged IP will be restricted to usage with board 'em.avnet.com:zed:part0:1.3'
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/conv1.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/imageControl.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/lineBuffer.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/imageProcessTop.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageProcessTop.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/lineBuffer.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageControl.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/conv1.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/conv1.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/imageControl.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/lineBuffer.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sources_1/new/imageProcessTop.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageProcessTop.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/lineBuffer.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageControl.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/conv1.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-4308] Project file 'ImageProcessing.srcs/sim_1/new/tb.v' is not found in the component files. It will be added automatically when merging sources and repackaging. Please remove the file from the source project if this is not desired.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_testbench (Test Bench)': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sim_1/new/tb.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+set_property name Sketch_IP [ipx::current_core]
+set_property display_name Sketch_IP [ipx::current_core]
+set_property description Sketch_IP [ipx::current_core]
+ipx::merge_project_changes files [ipx::current_core]
+WARNING: [IP_Flow 19-3833] Unreferenced file from the top module is not packaged: 'D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/new/conv.v'.
+WARNING: [IP_Flow 19-4963] outputBuffer has board value specified. The packaged IP will be restricted to usage with board 'em.avnet.com:zed:part0:1.3'
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagesynthesis (Synthesis)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageProcessTop.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagesynthesis (Synthesis)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagesynthesis (Synthesis)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/lineBuffer.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagesynthesis (Synthesis)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageControl.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagesynthesis (Synthesis)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/conv1.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageProcessTop.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/ip/outputBuffer/outputBuffer.xci' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/lineBuffer.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/imageControl.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sources_1/new/conv1.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+WARNING: [IP_Flow 19-5109] 'File Group 'xilinx_testbench (Test Bench)'': File 'D:/GitCode/Sketch_IP_1080p/ImageProcessing.srcs/sim_1/new/tb.v' is not found in the project sources. It has been removed from the packaged IP. If still required, please add this file to the project, merge sources and re-package.
+ipx::merge_project_changes ports [ipx::current_core]
+WARNING: [IP_Flow 19-3833] Unreferenced file from the top module is not packaged: 'D:/GitCode/ImageProcessingofSketch/ImageProcessing.srcs/sources_1/new/conv.v'.
+WARNING: [IP_Flow 19-4963] outputBuffer has board value specified. The packaged IP will be restricted to usage with board 'em.avnet.com:zed:part0:1.3'
+set_property core_revision 27 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path d:/gitcode/imageprocessingofsketch
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'd:/gitcode/imageprocessingofsketch'
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 21 21:14:30 2021...
